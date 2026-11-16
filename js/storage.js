@@ -1,0 +1,2 @@
+'use strict';
+(() => {const A=FMEA;A.STORAGE_KEY='epics-fmea-v1';A.RECOVERY_KEY='epics-fmea-recovery-v1';A.storage={load(){const raw=localStorage.getItem(A.STORAGE_KEY);return raw?A.validateBackup(JSON.parse(raw)):A.newProject();},save(p){p.updatedAt=new Date().toISOString();localStorage.setItem(A.STORAGE_KEY,JSON.stringify(p));},recover(p){localStorage.setItem(A.RECOVERY_KEY,JSON.stringify(p));}};})();
